@@ -1,0 +1,18 @@
+access points
+
+CONFIG -> NAME
+
+port 1 -> SSID -> NAME
+
+WPA2-PSK
+PSK PASS PHRASE -> NAME123 (this would be the password)
+
+
+then go to tablet/SMARTPHONE
+
+CONFIG -> WIRELESS
+ssid name
+and password
+
+
+change adapter on laptops with wpc300N wireless

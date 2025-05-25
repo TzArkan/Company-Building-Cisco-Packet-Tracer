@@ -1,0 +1,23 @@
+config
+
+interface range fastEthernet 0/3-24
+
+! enables port security on the interface
+switchport port-security
+
+! limits the number of MAC addresses allowed on the port to 2
+switchport port-security maximum 2
+
+! tells the switch to learn and remember the MAC addresses dynamically and save them in the running config
+switchport port-security mac-address sticky
+
+! if a device with an unauthorized MAC address is detected, the port shuts down
+switchport port-security violation shutdown
+
+do wr
+
+exit
+
+
+! no switchport port-security - for removing those measures
+! exit -> do wr - to save those

@@ -1,0 +1,28 @@
+!OSPF stands for Open Shortest Path First. It’s a widely used dynamic routing protocol for IP networks.
+!Automatically discovers other routers in the network running OSPF.
+!Uses a link-state algorithm to calculate the shortest and most efficient path to each network.
+!Helps routers make smart forwarding decisions so packets take the best route.
+!supports vlsm variable length subnet masking and cidr
+
+
+router ospf 10
+! Start OSPF process with process ID 10
+
+router-id 1.1.1.1
+! Assign a fixed OSPF router ID (helps OSPF identify this router uniquely)
+
+network 195.136.17.0 0.0.0.3 area 0
+! Advertise the subnet 195.136.17.0/30 into OSPF area 0 - tells ospf to enable on interfaces in these ip ranges, advertising those subnets into ospf area 0
+
+network 195.136.17.20 0.0.0.3 area 0
+! Advertise the subnet 195.136.17.20/30 into OSPF area 0 - wildcard mask 0.0.0.3 corresponds to a subnet mask of /30 - 255.255.255.252
+
+network 195.136.17.36 0.0.0.3 area 0
+! Advertise the subnet 195.136.17.36/30 into OSPF area 0
+
+do write
+! Save the running configuration to startup-config
+
+
+! in exec, run 'show ip ospf' to see the ospf config.
+! to erase those configs, 'clear ip ospf process'

@@ -1,0 +1,36 @@
+! switch create vlan and assign multiple ports so all connected devices are on the same layer 2 network
+cisco
+enable
+cisco
+config
+
+
+! creates a vlan x0 on the switch
+vlan 70
+
+! names VLAN x0 as Y for identification
+name SERVER-ROOM
+
+! enters interface range configuration mode for ports FastEthernet 0/3 to 0/24
+! saves time by configuring multiple interfaces at once
+interface range fa0/3-24
+
+! sets each port in range to access mode - for end devices like pcs, not other switches
+switchport mode access
+
+! assigns all the selected ports to VLAN X0
+switchport access vlan 70
+
+
+interface range fa0/1-2
+
+! configures the portS FastEthernet 0/1-2 as a trunk port: allows multiple vlans to pass through - used to connect to other switches or routers switchport mode trunk
+switchport mode trunk
+
+do write
+
+end
+
+! to see if it worked: 
+show interfaces trunk
+

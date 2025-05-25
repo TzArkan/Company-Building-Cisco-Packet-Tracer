@@ -1,0 +1,57 @@
+! Create VLANs multilayer
+enable
+config
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+vlan 70
+exit
+
+! Configure VLAN interfaces with IP addresses and helper addresses
+interface vlan 10
+ no shutdown
+ ip address 192.168.10.1 255.255.255.192
+ ip helper-address 192.168.12.4
+exit
+
+interface vlan 20
+ no shutdown
+ ip address 192.168.10.65 255.255.255.192
+ ip helper-address 192.168.12.4
+exit
+
+interface vlan 30
+ no shutdown
+ ip address 192.168.10.129 255.255.255.192
+ ip helper-address 192.168.12.4
+exit
+
+interface vlan 40
+ no shutdown
+ ip address 192.168.10.193 255.255.255.192
+ ip helper-address 192.168.12.4
+exit
+
+interface vlan 50
+ no shutdown
+ ip address 192.168.11.1 255.255.255.192
+ ip helper-address 192.168.12.4
+exit
+
+interface vlan 60
+ no shutdown
+ ip address 192.168.11.65 255.255.255.192
+ ip helper-address 192.168.12.4
+exit
+
+interface vlan 70
+ no shutdown
+ ip address 192.168.12.1 255.255.255.192
+ ip helper-address 192.168.12.4
+exit
+
+! Save configuration
+do wr

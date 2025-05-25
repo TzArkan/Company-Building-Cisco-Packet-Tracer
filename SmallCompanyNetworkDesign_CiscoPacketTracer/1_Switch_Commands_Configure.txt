@@ -1,0 +1,58 @@
+enable
+configure terminal
+
+! Set the switch hostname
+hostname Server-Room
+
+! Set a Message of the Day (MOTD) banner
+banner motd #Welcome to the Server Room Switch#
+
+! Enter configuration mode for console port - 0 is for single console line available on most cisco devices
+line console 0
+
+! Set console password to "cisco". anybody trying to access console will need password
+password cisco
+
+! tells the switch to require password on console line. without this, the password set won't actually be forced
+login
+
+! exits configuration mode and returns to PREVIOUS mode
+exit
+
+! Set enable (privileged exec) password
+enable password cisco
+
+! Encrypt all passwords
+service password-encryption
+
+! Set domain name
+ip domain-name CTTECH.COM
+
+! Create a local user with password
+username admin password cisco
+
+! Generate cryptographic keys (required for SSH later, if needed)
+crypto key generate rsa
+
+! When prompted for key size, enter:
+1024
+
+! used to configure remote access like telnet or ssh to the switch.
+line vty 0 15
+
+!  Use local user credentials (like "username admin password cisco")
+login local
+
+! Allow only SSH (blocks Telnet)    
+transport input ssh
+
+
+! Save configuration to startup-config - what loads after a reboot. "do" prefix allows to run exec mode commands like write while still in sub-mode (config line interface)    
+do write                 
+
+
+! exits ALL MODES and returns you to privileged exec mode (or just press ctrl+z)
+end
+
+! saves current configuration to be retained after reboot (or just write wr)
+write memory   

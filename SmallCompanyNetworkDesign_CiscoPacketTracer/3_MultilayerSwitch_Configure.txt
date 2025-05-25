@@ -1,0 +1,20 @@
+
+enable
+
+config
+
+! enters interface range configuration mode for ports gigabitEthernet 1/0/1 to 1/0/8
+! saves time by configuring multiple interfaces at once
+interface range gig1/0/1-8
+
+! sets each port in range to access mode - for end devices like pcs, not other switches
+switchport mode access
+
+
+! configures the ports as a trunk port: allows multiple vlans to pass through - used to connect to other switches or routers switchport mode trunk
+switchport mode trunk
+
+do write
+
+end
+

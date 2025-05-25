@@ -1,0 +1,19 @@
+enable
+
+config
+
+! enter config mode for interface GigabitE 1/0/1
+interface gig1/0/1
+
+! disabled layer2 switching on this port. turn the port into a layer 3 routed port. allows the port to have ip address and route packets like a router interface
+no switchport
+
+! assigns the ip address with the submask. mask means only 2 usable host ips - point to point
+ip address 195.136.17.5 255.255.255.252
+
+! enables the interface. by default, interfaces may be administratively down. this commands brings the interface up, allowing it to send and receive traffic
+no shutdown
+
+do wr
+
+! no ip address .... if you got it wrong first time
