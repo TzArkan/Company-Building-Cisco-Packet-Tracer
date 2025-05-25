@@ -38,7 +38,7 @@ to provide redundancy and each router to the connected to the two ISPs.
 
 	- Each department should be in a different VLAN and in different subnetwork.
 	
-	- Provided a base network of 172.16.1.0, carry out subnetting 
+	- Provided a base network of 192.168.1.0, carry out subnetting 
 to allocate the correct number of IP addresses to each department.
 
 	- The company network is connected to the static, 
