@@ -8,7 +8,7 @@ implemented in the new building.
 
 Existing Network comprises of the following elements: 
 
-The new building is expected to have three floors with two departments in each for example;
+The new building is expected to have four floors with two departments in each for example;
 First floor- 
 	(Sales and Marketing Department-60 users expected, 
 	Human Resource and Logistics Department-60 users expected).
